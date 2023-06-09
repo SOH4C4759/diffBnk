@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from setuptools import setup
 
 setup(
@@ -8,5 +9,5 @@ setup(
     license='',
     author='Sora',
     author_email='vx:SOH4C4759',
-    description='ÓÃÓÚ×Ô¶¯»¯ĞŞ¸´WwiseÉı¼¶2022°æ±¾ºó£¬°²×¿Æ½Ì¨bnk¹¹½¨Òì³£µÄÎÊÌâ'
+    description='ç”¨äºè‡ªåŠ¨åŒ–ä¿®å¤Wwiseå‡çº§2022ç‰ˆæœ¬åï¼Œå®‰å“å¹³å°bnkæ„å»ºå¼‚å¸¸çš„é—®é¢˜'
 )
