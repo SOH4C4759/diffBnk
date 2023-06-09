@@ -52,6 +52,11 @@ class DiffBnk:
         :param androidBnkPath:更改为Android Bnks的地址,例如： r"E:\WwiseProject\Project_IMIL\GeneratedSoundBanks\Android"
         :param bSaveAsTxt:是否将处理信息记录为文档
         """
+
+        if not createPlaceHolder():
+            print("创建PlaceHolder失败")
+            return False
+
         global f
         winBnks = {}
         for root, dirs, files in os.walk(winBnkPath):

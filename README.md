@@ -2,12 +2,7 @@
 相关介绍见文档：[相关介绍](INSTRUCTION.md)
 ### 使用方法
 本文解决方法如下：
-- *Step<1>* 在工程中创建一个空Event:PlaceHolder
-
-![img.png](img/step1.png)
-
-- *Step<2>* 选中新创建的Event，按住Shift键并点击鼠标右键-->copy GUID(s) to clipboard
-- *Step<3>* 在克隆下来的项目中新建python文件，并引入提供的函数库,后运行即可
+- *Step<1>* 在克隆下来的项目中新建python文件，并引入提供的函数库,后运行即可
 ```python
 from diffBnk import *
 DiffBnk.diffErrBnk([这里填languageID],
@@ -37,3 +32,4 @@ DiffBnk.diffBnkSize(r"E:\WwiseProject\Project_IMIL\GeneratedSoundBanks\Windows",
 DiffBnk.diffBankContent(r'E:\WwiseProject\Project_IMIL\GeneratedSoundBanks\Android\zh-CN\ST_Vo__Atk04.bnk',
                         r'E:\WwiseProject\Project_IMIL\GeneratedSoundBanks\Windows\zh-CN\ST_Vo__Atk04.bnk')
 ```
+
