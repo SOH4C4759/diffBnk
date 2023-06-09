@@ -16,6 +16,8 @@ DiffBnk.diffErrBnk([这里填languageID],
 *注意：languageID&platformID可以通过任意文本编辑器打开工程文件（.wproj)获取*
 !["languageID&platformID获取"](img/projInfo.png)
 
+- *Step<3>* reconcile GenerateSoundbanks文件夹，将更新文件上传至版本管理
+
 ### 其他功能
 #### diffSizeBnk
 用于Diff两个地址下所有存在大小差异的bnk并返回txt文档
