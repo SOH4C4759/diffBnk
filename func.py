@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 from typing import Union
 from waapi import connect
@@ -5,7 +6,7 @@ from waapi import connect
 
 def get_file_size(path):
     """
-    »ñÈ¡ÎÄ¼ş´óĞ¡£¬µ¥Î»ÎªKB
+    è·å–æ–‡ä»¶å¤§å°ï¼Œå•ä½ä¸ºKB
     """
     size = os.path.getsize(path) / 1024
     return round(size, 2)
@@ -13,7 +14,7 @@ def get_file_size(path):
 
 def get_known_files(winBnkPath):
     """
-    »ñÈ¡ÒÑÖªÎÄ¼ş¼ĞÖĞµÄbnkÎÄ¼şÃûºÍ´óĞ¡
+    è·å–å·²çŸ¥æ–‡ä»¶å¤¹ä¸­çš„bnkæ–‡ä»¶åå’Œå¤§å°
     """
     winBnks = {}
     for root, dirs, files in os.walk(winBnkPath):
@@ -27,7 +28,7 @@ def get_known_files(winBnkPath):
 
 def compare_files(winBnks, androidBnkPath):
     """
-    ÓëÒÑÖªÎÄ¼şÁĞ±í±È½Ï£¬·µ»ØÍ¬ÃûÎÄ¼şµÄ´óĞ¡²îÒì
+    ä¸å·²çŸ¥æ–‡ä»¶åˆ—è¡¨æ¯”è¾ƒï¼Œè¿”å›åŒåæ–‡ä»¶çš„å¤§å°å·®å¼‚
     """
     l_diff = []
     for root, dirs, files in os.walk(androidBnkPath):
@@ -44,7 +45,7 @@ def compare_files(winBnks, androidBnkPath):
 
 def save_diff_list(file_path, diff_list):
     """
-    ½«ÎÄ¼şºÍ´óĞ¡²îÒìµÄÊı¾İ¼ÇÂ¼ÔÚÒ»¸ötxtÎÄ¼şÖĞ
+    å°†æ–‡ä»¶å’Œå¤§å°å·®å¼‚çš„æ•°æ®è®°å½•åœ¨ä¸€ä¸ªtxtæ–‡ä»¶ä¸­
     """
     with open(file_path, 'w') as f:
         for file, diff in diff_list:
@@ -52,13 +53,13 @@ def save_diff_list(file_path, diff_list):
 
 
 def optimized(args: Union[dict, object]):
-    """ÓÃÓÚÓÅ»¯²ÎÊıÎªNoneÊ±µÄjson±äÁ¿±ÜÃâwaapiµ÷ÓÃ´íÎó"""
+    """ç”¨äºä¼˜åŒ–å‚æ•°ä¸ºNoneæ—¶çš„jsonå˜é‡é¿å…waapiè°ƒç”¨é”™è¯¯"""
     return {k: v for k, v in args.items() if v is not None}
 
 
 def get_file_size(path):
     """
-    »ñÈ¡ÎÄ¼ş´óĞ¡£¬µ¥Î»ÎªKB
+    è·å–æ–‡ä»¶å¤§å°ï¼Œå•ä½ä¸ºKB
     """
     size = os.path.getsize(path) / 1024
     return round(size, 2)
@@ -66,9 +67,9 @@ def get_file_size(path):
 
 def setNotes(obj: str, value: str):
     """
-    ÉèÖÃ¶ÔÏóµÄ±¸×¢
-    :param obj: ËùÒªÖØÃüÃûµÄ¶ÔÏóµÄ ID (GUID)¡¢Ãû³Æ»òÂ·¾¶
-    :param value: ¶ÔÏóµÄĞÂÃû³Æ
+    è®¾ç½®å¯¹è±¡çš„å¤‡æ³¨
+    :param obj: æ‰€è¦é‡å‘½åçš„å¯¹è±¡çš„ ID (GUID)ã€åç§°æˆ–è·¯å¾„
+    :param value: å¯¹è±¡çš„æ–°åç§°
     """
     args = {
         "object": obj,
@@ -77,7 +78,7 @@ def setNotes(obj: str, value: str):
     return connect(None).call("ak.wwise.core.object.setNotes", **args)
 
 
-def generateBNK(soundbanks: list[dict[str, bool | any]], languages: list[str] = None, skipLanguages=False,
+def generateBNK(soundbanks: list[dict], languages: list[str] = None, skipLanguages=False,
                 platform: list[str] = None, rebuildSoundBanks=False,
                 clearAudioFileCache=True, writeToDisk=True, rebuildInitBank=False):
     args = optimized({
@@ -96,12 +97,12 @@ def generateBNK(soundbanks: list[dict[str, bool | any]], languages: list[str] = 
 def setInclusions(_soundbank: str, objList: list[str], operation="add",
                   Filter=None):
     """
-    ĞŞ¸ÄÉùÒô¿âµÄÊÕÂ¼ÁĞ±í¡£¡°²Ù×÷¡±²ÎÊıÈ·¶¨¡°°üº¬¡±²ÎÊıÈçºÎĞŞ¸Ä SoundBank µÄ°üº¬ÁĞ±í;¡°°üº¬¡±¿ÉÄÜ»áÌí¼Óµ½ SoundBank µÄ°üº¬ÁĞ±íÖĞ/´ÓÖĞÉ¾³ı/Ìæ»»
-    :param _soundbank: ÒªÌí¼Ó Inclusion µÄ SoundBank µÄ ID (GUID)¡¢Ãû³Æ»òÂ·¾¶
-    :param objList:ÒªÔÚ SoundBank µÄ Inclusion ÁĞ±íÖĞÌí¼Ó/ÒÆ³ıµÄ¶ÔÏóµÄ ID (GUID)¡¢Ãû³Æ»òÂ·¾¶¡£
-    :param operation:¾ö¶¨ 'inclusions' ²ÎÊıÈçºÎĞŞ¸Ä SoundBank µÄ Inclusion ÁĞ±í
-        ¿ÉÔÚSoundBankµÄInclusionÁĞ±íÖĞÌí¼Ó/ÒÆ³ı/Ìæ»»inclusions'
-    :param Filter£º¿ÉÓÃÓÚÉ¸Ñ¡InclusionµÄÀàĞÍ£ºevents,structures,media
+    ä¿®æ”¹å£°éŸ³åº“çš„æ”¶å½•åˆ—è¡¨ã€‚â€œæ“ä½œâ€å‚æ•°ç¡®å®šâ€œåŒ…å«â€å‚æ•°å¦‚ä½•ä¿®æ”¹ SoundBank çš„åŒ…å«åˆ—è¡¨;â€œåŒ…å«â€å¯èƒ½ä¼šæ·»åŠ åˆ° SoundBank çš„åŒ…å«åˆ—è¡¨ä¸­/ä»ä¸­åˆ é™¤/æ›¿æ¢
+    :param _soundbank: è¦æ·»åŠ  Inclusion çš„ SoundBank çš„ ID (GUID)ã€åç§°æˆ–è·¯å¾„
+    :param objList:è¦åœ¨ SoundBank çš„ Inclusion åˆ—è¡¨ä¸­æ·»åŠ /ç§»é™¤çš„å¯¹è±¡çš„ ID (GUID)ã€åç§°æˆ–è·¯å¾„ã€‚
+    :param operation:å†³å®š 'inclusions' å‚æ•°å¦‚ä½•ä¿®æ”¹ SoundBank çš„ Inclusion åˆ—è¡¨
+        å¯åœ¨SoundBankçš„Inclusionåˆ—è¡¨ä¸­æ·»åŠ /ç§»é™¤/æ›¿æ¢inclusions'
+    :param Filterï¼šå¯ç”¨äºç­›é€‰Inclusionçš„ç±»å‹ï¼ševents,structures,media
     :return:
     """
     if Filter is None:
@@ -112,3 +113,18 @@ def setInclusions(_soundbank: str, objList: list[str], operation="add",
         "inclusions": [{"object": _obj, "filter": Filter} for _obj in objList]
     }
     return connect(None).call("ak.wwise.core.soundbank.setInclusions", **args)
+
+
+def createPlaceHolder():
+    args = {
+        "parent": r"\\Events\Default Work Unit",
+        "type": "Event",
+        "name": "PlaceHolder"
+    }
+    result = connect(None).call("ak.wwise.core.object.create",**args)
+    connect(None).call("ak.wwise.core.project.save")
+    event_id = result['id']
+    setNotes(event_id,"waapiå·¥å…·è‡ªåŠ¨ç”Ÿæˆï¼Œç”¨äºæ‰¹é‡ä¿®æ”¹bnkå±æ€§ï¼Œæ˜¾å¼rebuild bnkæ–‡ä»¶")
+    return event_id
+
+
