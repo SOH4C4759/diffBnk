@@ -1,33 +1,34 @@
-### ½éÉÜ
-Ïà¹Ø½éÉÜ¼ûÎÄµµ£º[Ïà¹Ø½éÉÜ](INSTRUCTION.md)
-### Ê¹ÓÃ·½·¨
-±¾ÎÄ½â¾ö·½·¨ÈçÏÂ£º
-- *Step<1>* ÔÚ¿ËÂ¡ÏÂÀ´µÄÏîÄ¿ÖÐÐÂ½¨pythonÎÄ¼þ£¬²¢ÒýÈëÌá¹©µÄº¯Êý¿â,ºóÔËÐÐ¼´¿É
+### ä»‹ç»
+ç›¸å…³ä»‹ç»è§æ–‡æ¡£ï¼š[ç›¸å…³ä»‹ç»](INSTRUCTION.md)
+### ä½¿ç”¨æ–¹æ³•
+æœ¬æ–‡è§£å†³æ–¹æ³•å¦‚ä¸‹ï¼š
+- *Step*<1>* æ‰“å¼€æ‰€éœ€è‡ªåŠ¨ä¿®å¤çš„Wwiseå·¥ç¨‹
+- *Step<2>* åœ¨å…‹éš†ä¸‹æ¥çš„é¡¹ç›®ä¸­æ–°å»ºpythonæ–‡ä»¶ï¼Œå¹¶å¼•å…¥æä¾›çš„å‡½æ•°åº“,åŽè¿è¡Œå³å¯
 ```python
 from diffBnk import *
-DiffBnk.diffErrBnk([ÕâÀïÌîlanguageID],
-                   [ÕâÀïÌîplatformID],
-                   ÕâÀïÌî¿ÕEventµÄGUID,
-                   ÕâÀïÌîwindowsBnkµÄµØÖ·,
-                   ÕâÀïÌîandroidBnkµÄµØÖ·,
-                   ÕâÀïÌîboolÖµ£¨ÊÇ·ñ±£´æ¼ÇÂ¼Îªtxt,Ä¬ÈÏÎªFalse£©)
+DiffBnk.diffErrBnk([è¿™é‡Œå¡«languageID],
+                   [è¿™é‡Œå¡«platformID],
+                   è¿™é‡Œå¡«ç©ºEventçš„GUID,
+                   è¿™é‡Œå¡«windowsBnkçš„åœ°å€,
+                   è¿™é‡Œå¡«androidBnkçš„åœ°å€,
+                   è¿™é‡Œå¡«boolå€¼ï¼ˆæ˜¯å¦ä¿å­˜è®°å½•ä¸ºtxt,é»˜è®¤ä¸ºFalseï¼‰)
 ```
-*×¢Òâ£ºlanguageID&platformID¿ÉÒÔÍ¨¹ýÈÎÒâÎÄ±¾±à¼­Æ÷´ò¿ª¹¤³ÌÎÄ¼þ£¨.wproj)»ñÈ¡*
-!["languageID&platformID»ñÈ¡"](img/projInfo.png)
+*æ³¨æ„ï¼šlanguageID&platformIDå¯ä»¥é€šè¿‡ä»»æ„æ–‡æœ¬ç¼–è¾‘å™¨æ‰“å¼€å·¥ç¨‹æ–‡ä»¶ï¼ˆ.wproj)èŽ·å–*
+!["languageID&platformIDèŽ·å–"](img/projInfo.png)
 
-### ÆäËû¹¦ÄÜ
+### å…¶ä»–åŠŸèƒ½
 #### diffSizeBnk
-ÓÃÓÚDiffÁ½¸öµØÖ·ÏÂËùÓÐ´æÔÚ´óÐ¡²îÒìµÄbnk²¢·µ»ØtxtÎÄµµ
+ç”¨äºŽDiffä¸¤ä¸ªåœ°å€ä¸‹æ‰€æœ‰å­˜åœ¨å¤§å°å·®å¼‚çš„bnkå¹¶è¿”å›žtxtæ–‡æ¡£
 
-Ê¹ÓÃÊ¾Àý£º
+ä½¿ç”¨ç¤ºä¾‹ï¼š
 ```python
 DiffBnk.diffBnkSize(r"E:\WwiseProject\Project_IMIL\GeneratedSoundBanks\Windows",
                     r"E:\WwiseProject\Project_IMIL\GeneratedSoundBanks\Android")
 ```
 #### diffSizeContent
-ÓÃÓÚDiffÁ½¸öbnkÎÄ¼þ£¬²¢Éú³ÉÁ½¸ö16½øÖÆÎÄ¼þ(.hex)£¬¿ÉÍ¨¹ýÈÎÒâIDE¶ÔÁ½¸öÎÄ¼þ½øÐÐDiff²é¿´
+ç”¨äºŽDiffä¸¤ä¸ªbnkæ–‡ä»¶ï¼Œå¹¶ç”Ÿæˆä¸¤ä¸ª16è¿›åˆ¶æ–‡ä»¶(.hex)ï¼Œå¯é€šè¿‡ä»»æ„IDEå¯¹ä¸¤ä¸ªæ–‡ä»¶è¿›è¡ŒDiffæŸ¥çœ‹
 
-Ê¹ÓÃÊ¾Àý£º
+ä½¿ç”¨ç¤ºä¾‹ï¼š
 ```python
 DiffBnk.diffBankContent(r'E:\WwiseProject\Project_IMIL\GeneratedSoundBanks\Android\zh-CN\ST_Vo__Atk04.bnk',
                         r'E:\WwiseProject\Project_IMIL\GeneratedSoundBanks\Windows\zh-CN\ST_Vo__Atk04.bnk')
